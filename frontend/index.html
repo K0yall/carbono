@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Especialista - Mercado de Carbono</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🌍 Sistema Especialista - Mercado de Carbono</h1>
+            <p class="developer">Desenvolvido por: [Seu Nome]</p>
+        </header>
+
+        <main>
+            <section id="form-section" class="card">
+                <h2>📊 Dados da Empresa</h2>
+
+                <form id="carbono-form">
+                    <div class="form-group">
+                        <h3>🏭 Emissões por Setor</h3>
+                        <p>Informe o faturamento anual por setor (R$):</p>
+
+                        <div class="setor-group">
+                            <label for="energia">Energia:</label>
+                            <input type="number" id="energia" name="energia" min="0" value="0" required>
+                            <span class="currency">R$</span>
+                        </div>
+
+                        <div class="setor-group">
+                            <label for="transportes">Transportes:</label>
+                            <input type="number" id="transportes" name="transportes" min="0" value="0" required>
+                            <span class="currency">R$</span>
+                        </div>
+
+                        <div class="setor-group">
+                            <label for="industria">Indústria:</label>
+                            <input type="number" id="industria" name="industria" min="0" value="0" required>
+                            <span class="currency">R$</span>
+                        </div>
+
+                        <div class="setor-group">
+                            <label for="agropecuaria">Agropecuária:</label>
+                            <input type="number" id="agropecuaria" name="agropecuaria" min="0" value="0" required>
+                            <span class="currency">R$</span>
+                        </div>
+
+                        <div class="setor-group">
+                            <label for="residuos">Resíduos:</label>
+                            <input type="number" id="residuos" name="residuos" min="0" value="0" required>
+                            <span class="currency">R$</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <h3>🎯 Meta de Redução</h3>
+                        <label for="meta">Meta de redução de emissões (% até 2030):</label>
+                        <input type="number" id="meta" name="meta" min="0" max="100" value="30" required>
+                        <span>%</span>
+                    </div>
+
+                    <div class="form-group">
+                        <h3>🌳 Projetos de Compensação</h3>
+                        <label for="tem-compensacao">Possui projetos de compensação?</label>
+                        <select id="tem-compensacao" name="tem_compensacao">
+                            <option value="nao">Não</option>
+                            <option value="sim">Sim</option>
+                        </select>
+
+                        <div id="compensacao-detalhes" style="display: none;">
+                            <label for="tipo-compensacao">Tipo de projeto:</label>
+                            <select id="tipo-compensacao" name="tipo_compensacao">
+                                <option value="reflorestamento">Reflorestamento</option>
+                                <option value="energia_renovavel">Energia Renovável</option>
+                                <option value="efficiencia_energetica">Eficiência Energética</option>
+                                <option value="captura_carbono">Captura de Carbono</option>
+                            </select>
+
+                            <label for="quantidade-compensacao">Quantidade compensada (tCO2e):</label>
+                            <input type="number" id="quantidade-compensacao" name="quantidade_compensacao" min="0"
+                                value="0">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <h3>💳 Créditos Existentes</h3>
+                        <label for="creditos-existentes">Créditos de carbono disponíveis (tCO2e):</label>
+                        <input type="number" id="creditos-existentes" name="creditos_existentes" min="0" value="0">
+                    </div>
+
+                    <button type="submit" id="calcular-btn">🔍 Calcular Análise</button>
+                </form>
+            </section>
+
+            <section id="resultado-section" class="card" style="display: none;">
+                <h2>📈 Resultado da Análise</h2>
+                <div id="resultado-content"></div>
+            </section>
+
+            <section id="explicacao-section" class="card" style="display: none;">
+                <h2>🔍 Explicação das Regras</h2>
+                <div id="explicacao-content"></div>
+            </section>
+
+            <div id="loading" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Processando consulta...</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
