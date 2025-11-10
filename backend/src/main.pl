@@ -1,11 +1,22 @@
-/* 
+/*
  * Sistema Especialista para Mercado de Carbono - Backend
- * Desenvolvido por: [Seu Nome] @seu_usuario
+ * Desenvolvido por: Lucas Gilmar da Silva (@Koyall)
+ * Desenvolvido por: Felipe José Sens (@FelipeJoseSens)
  */
 
+% Carrega todos os arquivos necessarios
 :- [kb, rules, ui, explain].
 
-% Limpa fatos dinâmicos antes de nova consulta
+% =======================================================
+% PONTO DE ENTRADA PRINCIPAL
+% =======================================================
+
+% O ponto de entrada que deve ser chamado no console e 'iniciar'.
+% Ele apenas chama o predicado 'menu_principal' definido no ui.pl
+iniciar :-
+    menu_principal. % Chama o menu principal definido em ui.pl
+
+% Predicado de limpeza (mantido do original)
 limpar_base :-
     retractall(emissao_setor(_, _)),
     retractall(emissao_total(_)),
